@@ -1,18 +1,20 @@
 <?php
-namespace Modul\App\Controllers;
+namespace Modul\Noc\Controllers;
 use App\Controllers\BaseController;
 use \Hermawan\DataTables\DataTable;
 
-class Leveluser extends BaseController
+class Noc extends BaseController
 {
     public function index()
     {
         $data = [
-            'mapp' => 1,
-            'smlevel' => 1
+            'bc' => "Data Pegawai",
+            'bc1' => "NOC",
+            'mpegawai' => 1,
+            'smnoc' => 1
 
         ];
-        return view('Modul\App\Views\leveluser_v',$data);
+        return view('Modul\Noc\Views\noc_v',$data);
     }
     public function tableuser()
     {

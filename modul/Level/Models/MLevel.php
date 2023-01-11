@@ -1,8 +1,8 @@
 <?php
-namespace Modul\Alamat\Models;
+namespace Modul\Level\Models;
 use CodeIgniter\Model;
 
-class Malamat extends Model
+class MLevel extends Model
 {
 
     public function simpan($table,$data)
@@ -15,10 +15,10 @@ class Malamat extends Model
     public function getProv($id = null)
     {
         if ($id != null) {
-            $tblprov = $this->db->table('provinsi');
+            $tblprov = $this->db->table('ref.prov');
             $result = $tblprov->where('id',$id)->get()->getRow();
         }else{
-            $tblprov = $this->db->table('provinsi');
+            $tblprov = $this->db->table('ref.prov');
             $result = $tblprov->orderBy('id','ASC')->get()->getResult();
         }
         
@@ -28,17 +28,17 @@ class Malamat extends Model
     {
         if ($id != null) {
             if ($p == 1) {
-                $tblprov = $this->db->table('kota');
+                $tblprov = $this->db->table('ref.kota');
                 $result1 = $tblprov->where('id',$id)->get()->getRow();
             }elseif($p == 2){
-                $tblprov = $this->db->table('kota');
+                $tblprov = $this->db->table('ref.kota');
                 $result1 = $tblprov->where('id_prov',$id)->orderBy('nama_kota','ASC')->get()->getResult();
             }
 
             $result = $result1;
             
         }else{
-            $tblprov = $this->db->table('kota');
+            $tblprov = $this->db->table('ref.kota');
             $result = $tblprov->orderBy('nama_kota','ASC')->get()->getResult();
         }
         
@@ -48,18 +48,18 @@ class Malamat extends Model
     {
         if ($id != null) {
             if ($p == 1) {
-                $tblprov = $this->db->table('kecamatan');
+                $tblprov = $this->db->table('ref.kecamatan');
                 $result1 = $tblprov->where('id',$id)->get()->getRow();
             }elseif($p == 2){
-                $tblprov = $this->db->table('kecamatan');
-                $result1 = $tblprov->where('id_kota',$id)->orderBy('nama_kec','ASC')->get()->getResult();
+                $tblprov = $this->db->table('ref.kecamatan');
+                $result1 = $tblprov->where('id_kota',$id)->orderBy('nama_kecamatan','ASC')->get()->getResult();
             }
 
             $result = $result1;
             
         }else{
-            $tblprov = $this->db->table('kecamatan');
-            $result = $tblprov->orderBy('nama_kec','ASC')->get()->getResult();
+            $tblprov = $this->db->table('ref.kecamatan');
+            $result = $tblprov->orderBy('nama_kecamatan','ASC')->get()->getResult();
         }
         
         
@@ -70,17 +70,17 @@ class Malamat extends Model
     {
         if ($id != null) {
             if ($p == 1) {
-                $tblprov = $this->db->table('desa');
+                $tblprov = $this->db->table('ref.desa');
                 $result1 = $tblprov->where('id',$id)->get()->getRow();
             }elseif($p == 2){
-                $tblprov = $this->db->table('desa');
-                $result1 = $tblprov->where('id_kec',$id)->orderBy('nama_desa','ASC')->get()->getResult();
+                $tblprov = $this->db->table('ref.desa');
+                $result1 = $tblprov->where('id_kecamatan',$id)->orderBy('nama_desa','ASC')->get()->getResult();
             }
 
             $result = $result1;
             
         }else{
-            $tblprov = $this->db->table('desa');
+            $tblprov = $this->db->table('ref.desa');
             $result = $tblprov->orderBy('nama_desa','ASC')->get()->getResult();
         }
         

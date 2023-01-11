@@ -86,7 +86,7 @@
             </li>
 			<!-- Apps & Pages -->
             <li class="menu-header small text-uppercase">
-              <span class="menu-header-text">Superadmin</span>
+              <span class="menu-header-text">Administrator</span>
             </li>
             <li class="menu-item <?= (empty($mref)) ? '' : 'active' ?> <?= (empty($mref)) ? '' : 'open' ?>">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
@@ -95,92 +95,145 @@
               </a>
 
               <ul class="menu-sub">
-                <li class="menu-item <?= (empty($smjurusan)) ? '' : 'active' ?>">
-                  <a href="<?= base_url('ref/jurusan') ?>" class="menu-link">
-                    <div data-i18n="Jurusan">Jurusan</div>
-                  </a>
-                </li>
-                <li class="menu-item <?= (empty($smmapel)) ? '' : 'active' ?>">
-                  <a href="<?= base_url('ref/mapel') ?>" class="menu-link">
-                    <div data-i18n="Mata Pelajaran">Mata Pelajaran</div>
-                  </a>
-                </li>
-                <li class="menu-item <?= (empty($smmgmp)) ? '' : 'active' ?>">
-                  <a href="<?= base_url('ref/mgmp') ?>" class="menu-link">
-                    <div data-i18n="MGMP">Mgmp</div>
-                  </a>
-                </li>
                 <li class="menu-item <?= (empty($smalamat)) ? '' : 'active' ?>">
-                  <a href="<?= base_url('ref/alamat') ?>" class="menu-link">
+                  <a href="<?= base_url('alamat') ?>" class="menu-link">
                     <div data-i18n="Alamat">Alamat</div>
+                  </a>
+                </li>
+                <li class="menu-item <?= (empty($smlevel)) ? '' : 'active' ?>">
+                  <a href="<?= base_url('level') ?>" class="menu-link">
+                    <div data-i18n="Level User">Level User</div>
                   </a>
                 </li>
               </ul>
             </li>
-            <li class="menu-item <?= (empty($mapp)) ? '' : 'active' ?> <?= (empty($mapp)) ? '' : 'open' ?>">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-food-menu"></i>
-                <div data-i18n="App">App</div>
+            <li class="menu-item <?= (empty($muserlogin)) ? '' : 'active' ?>">
+              <a href="<?= base_url('userlogin') ?>" class="menu-link">
+			          <i class="menu-icon tf-icons bx bxs-user"></i>
+                <div data-i18n="Data Siswa">Data User</div>
               </a>
+            </li>
+            <li class="menu-header small text-uppercase">
+              <span class="menu-header-text">Wifian</span>
+            </li>
+            <li class="menu-item <?= (empty($mmitra)) ? '' : 'active' ?>">
+              <a href="<?= base_url('mitra') ?>" class="menu-link">
+			          <i class="menu-icon tf-icons bx bxs-group"></i>
+                <div data-i18n="Data Siswa">Data Mitra</div>
+              </a>
+            </li>
+            <li class="menu-item <?= (empty($muser)) ? '' : 'active' ?>">
+              <a href="<?= base_url('user') ?>" class="menu-link">
+			          <i class="menu-icon tf-icons bx bxs-contact"></i>
+                <div data-i18n="Data Siswa">Data User</div>
+              </a>
+            </li>
+            <li class="menu-item <?= (empty($mboard)) ? '' : 'active' ?> <?= (empty($mboard)) ? '' : 'open' ?>">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                  <i class="menu-icon tf-icons bx bx-server"></i>
+                  <div data-i18n="Data Siswa">Board</div>
+              </a>
+
               <ul class="menu-sub">
-              <li class="menu-item <?= (empty($smuser)) ? '' : 'active' ?>">
-                  <a href="<?= base_url('app/user') ?>" class="menu-link">
-                    <div data-i18n="User">User</div>
+                <li class="ps-3 pe-3">
+                  <a href="<?= base_url('alamat') ?>" class="menu-link btn btn-sm btn-info m-2 text-secondary ">
+                  <i class="menu-icon tf-icons bx bx-plus"></i>
+                    <div data-i18n="Alamat">Tambah Board</div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item <?= (empty($mpegawai)) ? '' : 'active' ?> <?= (empty($mpegawai)) ? '' : 'open' ?>">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bxs-user-rectangle"></i>
+                <div data-i18n="Referensi">Data Pegawai</div>
+              </a>
+
+              <ul class="menu-sub">
+                <li class="menu-item <?= (empty($smteknisi)) ? '' : 'active' ?>">
+                  <a href="<?= base_url('teknisi') ?>" class="menu-link">
+                    <div data-i18n="Alamat">Data Teknisi</div>
+                  </a>
+                </li>
+                <li class="menu-item <?= (empty($smcs)) ? '' : 'active' ?>">
+                  <a href="<?= base_url('callsenter') ?>" class="menu-link">
+                    <div data-i18n="Data CS">Data CS</div>
+                  </a>
+                </li>
+                <li class="menu-item <?= (empty($smnoc)) ? '' : 'active' ?>">
+                  <a href="<?= base_url('noc') ?>" class="menu-link">
+                    <div data-i18n="NOC">NOC</div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-header small text-uppercase">
+              <span class="menu-header-text">Mitra</span>
+            </li>
+            <li class="menu-item <?= (empty($msiswa)) ? '' : 'active' ?>">
+              <a href="<?= base_url('user/datauser') ?>" class="menu-link">
+			          <i class="menu-icon tf-icons bx bx-wifi"></i>
+                <div data-i18n="Data Siswa">Paket Internet</div>
+              </a>
+            </li>
+            <li class="menu-item <?= (empty($msiswa)) ? '' : 'active' ?>">
+              <a href="<?= base_url('user/datauser') ?>" class="menu-link">
+			          <i class="menu-icon tf-icons bx bxs-contact"></i>
+                <div data-i18n="Data Siswa">Data Pelanggan</div>
+              </a>
+            </li>
+            <li class="menu-item <?= (empty($mboard)) ? '' : 'active' ?> <?= (empty($mboard)) ? '' : 'open' ?>">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                  <i class="menu-icon tf-icons bx bx-server"></i>
+                  <div data-i18n="Data Siswa">Board</div>
+              </a>
+
+              <ul class="menu-sub">
+              <li class="ps-3 pe-3">
+                  <a href="<?= base_url('alamat') ?>" class="menu-link btn btn-sm btn-info m-2 text-secondary ">
+                  <i class="menu-icon tf-icons bx bx-plus"></i>
+                    <div data-i18n="Alamat">Tambah Board</div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="menu-item <?= (empty($mpegawai)) ? '' : 'active' ?> <?= (empty($mpegawai)) ? '' : 'open' ?>">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+              <i class="menu-icon tf-icons bx bxs-user-rectangle"></i>
+                <div data-i18n="Referensi">Data Pegawai</div>
+              </a>
+
+              <ul class="menu-sub">
+                <li class="menu-item <?= (empty($smalamat)) ? '' : 'active' ?>">
+                  <a href="<?= base_url('alamat') ?>" class="menu-link">
+                    <div data-i18n="Alamat">Data Teknisi</div>
                   </a>
                 </li>
                 <li class="menu-item <?= (empty($smlevel)) ? '' : 'active' ?>">
                   <a href="<?= base_url('app/leveluser') ?>" class="menu-link">
-                    <div data-i18n="Level User">Level User</div>
+                    <div data-i18n="Level User">Data CS</div>
                   </a>
                 </li>
-                <li class="menu-item <?= (empty($smtahun)) ? '' : 'active' ?>">
-                  <a href="<?= base_url('app/thnajar') ?>" class="menu-link">
-                    <div data-i18n="Tahun Ajaran">Tahun Ajaran</div>
+                <li class="menu-item <?= (empty($smlevel)) ? '' : 'active' ?>">
+                  <a href="<?= base_url('app/leveluser') ?>" class="menu-link">
+                    <div data-i18n="Level User">NOC</div>
                   </a>
                 </li>
               </ul>
             </li>
             <li class="menu-header small text-uppercase">
-              <span class="menu-header-text">Admin</span>
-            </li>
+              <span class="menu-header-text">Teknisi</span>
             </li>
             <li class="menu-item <?= (empty($msiswa)) ? '' : 'active' ?>">
-              <a href="<?= base_url('admin/datasiswa') ?>" class="menu-link">
-			          <i class="menu-icon tf-icons bx bxs-user-rectangle"></i>
-                <div data-i18n="Data Siswa">Data Siswa</div>
+              <a href="<?= base_url('user/datauser') ?>" class="menu-link">
+			          <i class="menu-icon tf-icons bx bx-wifi"></i>
+                <div data-i18n="Data Siswa">Paket Internet</div>
               </a>
             </li>
-            <li class="menu-item <?= (empty($mpegawai)) ? '' : 'active' ?>">
-              <a href="<?= base_url('admin/pegawai') ?>" class="menu-link">
-			          <i class="menu-icon tf-icons bx bxs-user-rectangle"></i>
-                <div data-i18n="Data Pegawai">Data Guru & Pegawai</div>
-              </a>
-            </li>
-            <li class="menu-item <?= (empty($mkelas)) ? '' : 'active' ?>">
-              <a href="<?= base_url('admin/datakelas') ?>" class="menu-link">
-			          <i class="menu-icon tf-icons bx bx-grid-alt"></i>
-                <div data-i18n="Data Kelas">Data Kelas</div>
-              </a>
-            </li>
-            <li class="menu-item <?= (empty($mjurusan)) ? '' : 'active' ?>">
-              <a href="<?= base_url('admin/datajurusan') ?>" class="menu-link">
-			          <i class="menu-icon tf-icons bx bx-grid-alt"></i>
-                <div data-i18n="Dashboards">Data Jurusan</div>
-              </a>
-            </li>
-            <li class="menu-item <?= (empty($mpembelajaran)) ? '' : 'active' ?>">
-              <a href="<?= base_url('admin/pembelajaran') ?>" class="menu-link">
-			          <i class="menu-icon tf-icons bx bx-cog"></i>
-                <div data-i18n="Setting Pembelajaran">Setting Pembelajaran</div>
-              </a>
-            </li>
-            <li class="menu-header small text-uppercase">
-              <span class="menu-header-text">Guru</span>
-            </li>
-            <li class="menu-item <?= (empty($mmgmp)) ? '' : 'active' ?>">
-              <a href="<?= base_url('guru/mgmp') ?>" class="menu-link">
-			          <i class="menu-icon tf-icons bx bx-cog"></i>
-                <div data-i18n="MGMP">MGMP</div>
+            <li class="menu-item <?= (empty($msiswa)) ? '' : 'active' ?>">
+              <a href="<?= base_url('user/datauser') ?>" class="menu-link">
+			          <i class="menu-icon tf-icons bx bxs-contact"></i>
+                <div data-i18n="Data Siswa">Data Pelanggan</div>
               </a>
             </li>
         </aside>

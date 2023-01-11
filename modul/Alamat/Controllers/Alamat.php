@@ -1,5 +1,5 @@
 <?php
-namespace Modul\Ref\Controllers;
+namespace Modul\Alamat\Controllers;
 use App\Controllers\BaseController;
 
 class Alamat extends BaseController
@@ -15,7 +15,7 @@ class Alamat extends BaseController
             'ddesa' => $this->malamat->getDesa(),
 
         ];
-        return view('Modul\Ref\Views\alamat_v',$data);
+        return view('Modul\Alamat\Views\alamat_v',$data);
     }
 
     public function simpan()
@@ -25,28 +25,28 @@ class Alamat extends BaseController
                 'id' => $this->request->getVar('kd_prov'),
                 'nama_prov' => $this->request->getVar('nama_prov'),
             ];
-            $table = 'ref.prov';
+            $table = 'provinsi';
         }elseif ($this->request->getVar('pilih') == 2){
             $data =[
                 'id' => $this->request->getVar('kd_kota'),
                 'id_prov' => $this->request->getVar('prov'),
                 'nama_kota' => $this->request->getVar('nama_kota'),
             ];
-            $table ='ref.kota';
+            $table ='kota';
         }elseif ($this->request->getVar('pilih') == 3) {
             $data =[
                 'id' => $this->request->getVar('kd_kec'),
                 'id_kota' => $this->request->getVar('kota'),
-                'nama_kecamatan' => $this->request->getVar('nama_kec'),
+                'nama_kec' => $this->request->getVar('nama_kec'),
             ];
-            $table ='ref.kecamatan';
+            $table ='kecamatan';
         }else{
             $data =[
                 'id' => $this->request->getVar('kd_desa'),
-                'id_kecamatan' => $this->request->getVar('kec'),
+                'id_kec' => $this->request->getVar('kec'),
                 'nama_desa' => $this->request->getVar('nama_desa'),
             ];
-            $table ='ref.desa';
+            $table ='desa';
         }
         $result = $this->malamat->simpan($table,$data);
 

@@ -59,7 +59,7 @@
                             <h2 class="accordion-header d-flex align-items-center">
                               <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#accordionWithIcon-<?= $kec->id ?>" aria-expanded="false">
                                 <i class="bx bx-briefcase me-2"></i>
-                                <?= $kec->nama_kecamatan ?>
+                                <?= $kec->nama_kec ?>
                               </button>
                             </h2>
                             <div id="accordionWithIcon-<?= $kec->id ?>" class="accordion-collapse collapse">
@@ -67,7 +67,7 @@
                                       <?php  if ($ddesa) {
                                         $ndesa = 0;
                                       foreach ($ddesa as $desa) {
-                                        if ($desa->id_kecamatan == $kec->id) {
+                                        if ($desa->id_kec == $kec->id) {
                                         ?>
                                         <div class="accordion-item card mt-1">
                                       <h2 class="accordion-header d-flex align-items-center">
@@ -85,7 +85,7 @@
                                         ?>
                                         <div class="mt-1 p-4">
                                             <h5 class="text-center">Tidak Ada Data</h5>
-                                            <p class="text-center" style="margin:-10px;">silakan tambahkan data Desa/Kelurahan dan pilih Kecamatan <?= $kec->nama_kecamatan; ?></p>
+                                            <p class="text-center" style="margin:-10px;">silakan tambahkan data Desa/Kelurahan dan pilih Kecamatan <?= $kec->nama_kec; ?></p>
                                         </div>
                                         <?php
                                         }
@@ -94,7 +94,7 @@
                                       ?>
                                       <div class="mt-1 p-4">
                                           <h5 class="text-center">Tidak Ada Data</h5>
-                                          <p class="text-center" style="margin:-10px;">silakan tambahkan data Desa/Kelurahan dan pilih Kecamatan <?= $kec->nama_kecamatan; ?></p>
+                                          <p class="text-center" style="margin:-10px;">silakan tambahkan data Desa/Kelurahan dan pilih Kecamatan <?= $kec->nama_kec; ?></p>
                                       </div>
                                       <?php
                                     }
@@ -287,7 +287,7 @@
                                     <?php
                                     foreach ($dkec as $kec) {
                                         ?>
-                                        <option value="<?= $kec->id; ?>"><?= $kec->nama_kecamatan; ?></option>
+                                        <option value="<?= $kec->id; ?>"><?= $kec->nama_kec; ?></option>
                                         <?php
                                     }
                                     ?>
@@ -327,7 +327,7 @@
         submitHandler: function () {
             $.ajax({
                 type:"POST",
-                url:"<?= base_url() ?>/ref/alamat/simpan",
+                url:"<?= base_url() ?>/alamat/simpan",
                 data:$("#fmprov").serialize(),
                 dataType:"JSON",
                 success:function (response) {
@@ -397,7 +397,7 @@
         submitHandler: function () {
             $.ajax({
                 type:"POST",
-                url:"<?= base_url() ?>/ref/alamat/simpan",
+                url:"<?= base_url() ?>/alamat/simpan",
                 data:$("#fmkota").serialize(),
                 dataType:"JSON",
                 success:function (response) {
@@ -465,7 +465,7 @@
         submitHandler: function () {
             $.ajax({
                 type:"POST",
-                url:"<?= base_url() ?>/ref/alamat/simpan",
+                url:"<?= base_url() ?>/alamat/simpan",
                 data:$("#fmkec").serialize(),
                 dataType:"JSON",
                 success:function (response) {
@@ -533,7 +533,7 @@
         submitHandler: function () {
             $.ajax({
                 type:"POST",
-                url:"<?= base_url() ?>/ref/alamat/simpan",
+                url:"<?= base_url() ?>/alamat/simpan",
                 data:$("#fmdesa").serialize(),
                 dataType:"JSON",
                 success:function (response) {

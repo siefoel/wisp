@@ -1,18 +1,20 @@
 <?php
-namespace Modul\App\Controllers;
+namespace Modul\Cs\Controllers;
 use App\Controllers\BaseController;
 use \Hermawan\DataTables\DataTable;
 
-class User extends BaseController
+class Cs extends BaseController
 {
     public function index()
     {
         $data = [
-            'mapp' => 1,
-            'smuser' => 1
+            'bc' => "Data Pegawai",
+            'bc1' => "Call Senter",
+            'mpegawai' => 1,
+            'smcs' => 1
 
         ];
-        return view('Modul\App\Views\user_v',$data);
+        return view('Modul\Cs\Views\cs_v',$data);
     }
     public function tableuser()
     {

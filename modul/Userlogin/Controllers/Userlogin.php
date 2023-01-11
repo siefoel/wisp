@@ -1,18 +1,18 @@
 <?php
-namespace Modul\App\Controllers;
+namespace Modul\Userlogin\Controllers;
 use App\Controllers\BaseController;
 use \Hermawan\DataTables\DataTable;
 
-class TahunAjar extends BaseController
+class Userlogin extends BaseController
 {
     public function index()
     {
         $data = [
             'mapp' => 1,
-            'smtahun' => 1
+            'muserlogin' => 1
 
         ];
-        return view('Modul\App\Views\thnajar_v',$data);
+        return view('Modul\Userlogin\Views\userlogin_v',$data);
     }
     public function tableuser()
     {
