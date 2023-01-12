@@ -2,24 +2,24 @@
 <?= $this->extend('Layout/wreaper'); ?>
 <?= $this->section('content') ?>
 <h4 class="fw-bold py-3 mb-4">
-  <span class="text-muted fw-light">Administrator /</span> Management User
+  <span class="text-muted fw-light"><?= (!empty($bc)) ? $bc : '';  ?>  <?= (!empty($bc1)) ? $bc1.'/</span>' : ''; ?>
 </h4>
 <div class="row ">
 <!-- Complex Headers -->
               <div class="card card-action">
               <div class="card-header align-items-center">
-                <h5 class="card-action-title mb-0">Daftar User Login</h5>
+                <h5 class="card-action-title mb-0">Daftar Mitra</h5>
                 <div class="card-action-element">
-                  <button class="btn btn-primary btn-md" type="button" data-bs-toggle="modal" data-bs-target="#add"><i class="bx bx-plus bx-xs me-1"></i>Tambah Data</button>
+                  <button class="btn btn-primary btn-md d-none" type="button" data-bs-toggle="modal" data-bs-target="#add"><i class="bx bx-plus bx-xs me-1"></i>Tambah Data</button>
                 </div>
               </div>
                 <div class="card-datatable text-nowrap">
-                  <table class="dt-complex-header table table-user">
+                  <table class="datatables-basic table table-mitra">
                     <thead>
                       <tr>
                         <th>No</th>
-                        <th>Email</th>
-                        <th>Level</th>
+                        <th>Mitra</th>
+                        <th>Owner</th>
                         <th>Status</th>
                         <th>Action</th>
                       </tr>
@@ -35,7 +35,7 @@
         <div class="modal fade" id="add" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
-                <form action="" method="POST" id="fmlevel">
+                <form action="" method="POST" id="fmmitra">
                 <div class="modal-header">
                   <h5 class="modal-title" id="exampleModalLabel1">Tambah User Login</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -85,7 +85,57 @@
 <script>
     var table;
     $(document).ready(function() {
-        table = $(".table-user").DataTable();
+      loadtable();
     });
+    function loadtable() {
+    tabel = $('.table-mitra').DataTable({
+          buttons: [
+                {
+                  text: '<i class="bx bx-plus me-sm-2"></i> <span class="d-none d-sm-inline-block">Tambah</span>',
+                  className: "create-new btn btn-primary",
+                },
+              ],
+            processing: true,
+            serverSide: true,
+            responsive: true,
+            autoWidth: true,
+            info: true,
+            paging: true,
+            searching: true,
+        order: [],
+        ajax: {
+                url: '<?= base_url() ?>/mitra/datatable',
+                method: 'POST',
+            },
+        columns: [
+                {
+                    data: 'no',
+                    className: 'text-center align-middle',
+                    
+                },
+                {
+                    data: 'mitra',
+                    className: 'text-center align-middle',
+                    
+                },
+                {
+                    data: 'id_user',
+                    className: 'text-center align-middle',
+                    
+                },
+                {
+                    data: 'st',
+                    className: 'text-center align-middle',
+                    
+                },
+                {
+                    data: 'action',
+                    orderable: false,
+                    className: 'text-left align-middle',
+                    
+                },
+            ],
+    });
+    }
 </script>
 <?= $this->endSection() ?>
