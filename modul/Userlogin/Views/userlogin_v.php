@@ -35,7 +35,7 @@
         <div class="modal fade" id="add" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
-                <form action="" method="POST" id="fmlevel">
+                <form action="" method="POST" id="fmlogin">
                 <div class="modal-header">
                   <h5 class="modal-title" id="exampleModalLabel1">Tambah User Login</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -43,25 +43,29 @@
                 <div class="modal-body">
                     <div class="form-group">
                       <label for="email" class="form-label">email</label>
-                      <input type="email" id="email" name="emaill" class="form-control">
+                      <input type="email" id="email" name="email" class="form-control">
                     </div>
                     <div class="form-group">
-                      <label for="pasword" class="form-label">Pasword</label>
-                      <input type="password" id="pasword" name="pasword" class="form-control">
+                      <label for="password" class="form-label">Pasword</label>
+                      <input type="password" id="password" name="password" class="form-control">
                     </div>
                     <div class="form-group">
                       <label for="password1" class="form-label">Confirm Password</label>
                       <input type="password" id="password1" name="password1" class="form-control">
                     </div>
-                    <div class="form-group">
-                      <label for="level" class="form-label">Level</label>
-                      <select id="level" name="level" class="select2 form-select form-select-lg" data-allow-clear="true">
-                          <option value="AK">Alaska</option>
-                          <option value="HI">Hawaii</option>
-                          <option value="CA">California</option>
-                          <option value="NV">Nevada</option>
-                        </select>
-                    </div>
+                    <div class="form-group mt-2">
+                        <label for="level" class="form-label">Level User</label>
+                        <select id="level" name="level" class="select2 form-select form-select-lg" data-allow-clear="true">
+                        <option value=""></option>
+                                    <?php
+                                      foreach ($dlevel as $level) {
+                                          ?>
+                                          <option value="<?= $level->id; ?>"><?= $level->nama_level; ?></option>
+                                          <?php
+                                      }
+                                    ?>>
+                          </select>
+                      </div>
                     <div class="form-group mt-2">
                       <label for="status" class="form-label">Status</label>
                         <div class="form-check form-switch mb-2">
@@ -86,8 +90,6 @@
     var table;
     $(document).ready(function() {
       loadtable();
-      dateinput();
-      loadAlamat();
       validasiSimpan();
     });
     function loadtable() {
@@ -134,69 +136,24 @@
             ],
     });
     }
-    function dateinput() {
-      var e = $("#bs-datepicker-basic");
-      e =
-        (e.length &&
-          e.datepicker({
-            todayHighlight: !0,
-            format: "yyyy/mm/dd",
-            orientation: isRtl ? "auto right" : "auto left",
-          }),$("#bs-rangepicker-basic"))
-    }
-    function loadAlamat() {
-    $('#prov').on("change", function () {
-        const id = $(this).val();
-        $.ajax({
-        type:"POST",
-        url:"<?= base_url() ?>/alamat/getkota",
-        data:{"id" : id},
-        success:function (data) {
-            $("#kota").html(data);
-        }
-        });
-    });
-    $('#kota').on("change", function () {
-        const id = $(this).val();
-        $.ajax({
-        type:"POST",
-        url:"<?= base_url() ?>/alamat/getkec",
-        data:{"id" : id},
-        success:function (data) {
-            $("#kec").html(data);
-        }
-        });
-    });
-    $('#kec').on("change", function () {
-        const id = $(this).val();
-        $.ajax({
-        type:"POST",
-        url:"<?= base_url() ?>/alamat/getdesa",
-        data:{"id" : id},
-        success:function (data) {
-            $("#desa").html(data);
-        }
-        });
-    });
-    }
     function validasiSimpan() {
     $.validator.setDefaults({
         submitHandler: function () {
             $.ajax({
                 type:"POST",
-                url:"<?= base_url() ?>/user/simpan",
-                data:$("#fmuser").serialize(),
+                url:"<?= base_url() ?>/userlogin/simpan",
+                data:$("#fmlogin").serialize(),
                 dataType:"JSON",
                 success:function (response) {
                     if (response.status) {
                         console.log(response.status);
                         $('#add').modal('hide');
-                        $('#fmuser')[0].reset();
+                        $('#fmlogin')[0].reset();
                         notifsuccess("Data Berhasil Disimpan")
                         location.reload();
                     }else{
                         $('#add').modal('hide');
-                        $('#fmuser')[0].reset();
+                        $('#fmlogin')[0].reset();
                         notifError("Data Gagal Disimpan")
                         location.reload();
                     }
@@ -204,38 +161,14 @@
             });
         },
       });
-    $("#fmuser").validate({
+    $("#fmlogin").validate({
           rules: {
-            nik: "required",
-            nm_user: "required",
-            tmp_lahir: "required",
-            tgl_lahir: "required",
-            gender: "required",
-            tlp: "required",
-            pekerjaan: "required",
-            alamat: "required",
-            prov: "required",
-            kota: "required",
-            kec: "required",
-            desa: "required",
             email:  {required:true, email:true},
             password: "required",
             password1: {required:true,equalTo: 'input[name="password"]'},
             level: "required",
           },
           messages: {
-            nik: "NIK harus di isi !!!",
-            nm_user: "Nama Lengkap Harus di isi !!!",
-            tmp_lahir: "Tempat Lahir Harus di isi !!!",
-            tgl_lahir: "Tanggal Lahir Harus di isi !!!",
-            gender: "Jenis Kelamin Harus di isi !!!",
-            tlp: "Nomor Hp Harus di isi !!!",
-            pekerjaan: "Pekerjaan Harus di isi !!!",
-            alamat: "Alamat Harus di isi !!!",
-            prov: "Provinsi Harus di isi !!!",
-            kota: "Kota/ Kabupaten Harus di isi !!!",
-            kec: "Kecamatan Harus di isi !!!",
-            desa: "Desa / Kelurahan Harus di isi !!!",
             email: {required:"Email harus di isi !!!", email:"Isi denga email yang falid !!"},
             password: "Password Harus di isi !!!",
             password1: {required:"Confirm Password harus di sisi !!!",equalTo:"Pasword yang di masukan tidak sesuai"},

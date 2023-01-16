@@ -19,6 +19,13 @@ class MLevel extends Model
         
         return $result;
     }
+    public function getlevel()
+    {
+            $result = $this->db->query("SELECT * FROM level")->getResult();
+        
+        
+        return $result;
+    }
     
 
 }
