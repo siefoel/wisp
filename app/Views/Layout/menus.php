@@ -136,9 +136,9 @@
 
               <ul class="menu-sub">
                 <li class="ps-3 pe-3">
-                  <a href="<?= base_url('alamat') ?>" class="menu-link btn btn-sm btn-info m-2 text-secondary ">
+                  <a href="<?= base_url('board/add') ?>" class="menu-link btn btn-sm btn-info m-2 text-secondary ">
                   <i class="menu-icon tf-icons bx bx-plus"></i>
-                    <div data-i18n="Alamat">Tambah Board</div>
+                    <div data-i18n="Tambah Board">Tambah Board</div>
                   </a>
                 </li>
               </ul>

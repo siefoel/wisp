@@ -77,10 +77,21 @@ class Alamat extends BaseController
     {
         
         $id = $this->request->getVar('id');
-        $dkota= $this->malamat->getKec($id,2);
+        $dkec= $this->malamat->getKec($id,2);
             echo "<option value=''></option>";
-            foreach ($dkota as $kota) {
-                echo "<option value='$kota->id'>$kota->nama_kota</option>";
+            foreach ($dkec as $kec) {
+                echo "<option value='$kec->id'>$kec->nama_kec</option>";
+            }
+
+    }
+    public function getdesa()
+    {
+        
+        $id = $this->request->getVar('id');
+        $ddesa= $this->malamat->getDesa($id,2);
+            echo "<option value=''></option>";
+            foreach ($ddesa as $desa) {
+                echo "<option value='$desa->id'>$desa->nama_desa</option>";
             }
 
     }

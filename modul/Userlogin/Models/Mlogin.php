@@ -1,8 +1,8 @@
 <?php
-namespace Modul\Level\Models;
+namespace Modul\Userlogin\Models;
 use CodeIgniter\Model;
 
-class MLevel extends Model
+class Mlogin extends Model
 {
 
     public function simpan($table,$data)
@@ -12,11 +12,10 @@ class MLevel extends Model
             $result = $builder->insert($data);
         return $result;
     }
-    public function levelUser()
+    public function getData()
     {
-            $result = $this->db->query("SELECT * FROM level WHERE id NOT IN ('1')")->getResult();
-        
-        
+            $builder = $this->db->table($table);
+            $result = $builder->insert($data);
         return $result;
     }
     
