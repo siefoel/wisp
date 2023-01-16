@@ -113,6 +113,12 @@
                 <div data-i18n="Data Siswa">Data User</div>
               </a>
             </li>
+            <li class="menu-item <?= (empty($muser)) ? '' : 'active' ?>">
+              <a href="<?= base_url('user') ?>" class="menu-link">
+			          <i class="menu-icon tf-icons bx bxs-contact"></i>
+                <div data-i18n="Data Siswa">Data User</div>
+              </a>
+            </li>
             <li class="menu-header small text-uppercase">
               <span class="menu-header-text">Wifian</span>
             </li>
@@ -120,12 +126,6 @@
               <a href="<?= base_url('mitra') ?>" class="menu-link">
 			          <i class="menu-icon tf-icons bx bxs-group"></i>
                 <div data-i18n="Data Siswa">Data Mitra</div>
-              </a>
-            </li>
-            <li class="menu-item <?= (empty($muser)) ? '' : 'active' ?>">
-              <a href="<?= base_url('user') ?>" class="menu-link">
-			          <i class="menu-icon tf-icons bx bxs-contact"></i>
-                <div data-i18n="Data Siswa">Data User</div>
               </a>
             </li>
             <li class="menu-item <?= (empty($mboard)) ? '' : 'active' ?> <?= (empty($mboard)) ? '' : 'open' ?>">

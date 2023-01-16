@@ -157,11 +157,11 @@
                             <!-- <label class="form-check-label" for="status">Checked switch checkbox input</label> -->
                         </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">Batal</button>
-                  <button type="submit" class="btn btn-info">Simpan</button>
-                </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-label-secondary" data-bs-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-info">Simpan</button>
+                  </div>
                 </form>
               </div>
             </div>
