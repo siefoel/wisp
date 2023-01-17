@@ -59,11 +59,6 @@ class Mitra extends BaseController
                             <button type="button" class="btn btn-sm btn-danger btnhapus" title="Hapus Data Bank" onclick="hapus(\'' . $row->id_mitra . '\');"><i class="fas fa-trash"></i></button>
                             ';
                 })
-                ->add('level', function ($row) {
-                    // $d = [$row->id ,$row->nama_level,$row->status];
-                    $level = $this->db->table('ref.level')->select('nama_level')->where('id',$row->lv)->get()->getRowObject();
-                    return $level->nama_level;
-                })
                 ->addNumbering('no')->toJson(true);
     }
 
@@ -94,12 +89,12 @@ class Mitra extends BaseController
                 'id_user' => $id,
                 'email' => $this->request->getVar('email'),
                 'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
-                'id_level' => $this->request->getVar('level'),
+                'id_level' => $this->request->getVar('id_level'),
                 'status' => $stt,
 
             ];
             $dataMitra =[
-                'id_user' => $id_mitra,
+                'id_mitra' => $id_mitra,
                 'kode_mitra' => $this->request->getVar('kd_mitra'),
                 'nama_mitra' => $this->request->getVar('nama_mitra'),
                 'alamat' => $this->request->getVar('alamat1'),
