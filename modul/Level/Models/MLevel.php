@@ -19,6 +19,13 @@ class MLevel extends Model
         
         return $result;
     }
+    public function levelPegawai()
+    {
+            $result = $this->db->query("SELECT * FROM level WHERE id NOT IN ('1','2','5','6')")->getResult();
+        
+        
+        return $result;
+    }
     public function getlevel()
     {
             $result = $this->db->query("SELECT * FROM level")->getResult();

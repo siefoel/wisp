@@ -2,16 +2,29 @@
 namespace Modul\Noc\Controllers;
 use App\Controllers\BaseController;
 use \Hermawan\DataTables\DataTable;
+use \Modul\Level\Models\MLevel;
+use \Modul\User\Models\Muser;
+use \Modul\Userlogin\Models\Mlogin;
 
 class Noc extends BaseController
 {
+    protected $muser;
+    protected $mlevel;
+    protected $mlogin;
+    public function __construct(){
+        $this->mlevel = new MLevel();
+        $this->muser = new Muser();
+        $this->mlogin = new Mlogin();
+    }
     public function index()
     {
         $data = [
             'bc' => "Data Pegawai",
             'bc1' => "NOC",
             'mpegawai' => 1,
-            'smnoc' => 1
+            'smnoc' => 1,
+            'dprov' =>$this->malamat->getProv(),
+            'dlevel' =>$this->mlevel->levelPegawai(),
 
         ];
         return view('Modul\Noc\Views\noc_v',$data);

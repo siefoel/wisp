@@ -42,38 +42,40 @@
                   ?>
                   <div class="accordion-item card mt-1">
                 <h2 class="accordion-header d-flex align-items-center">
-                  <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#accordionWithIcon-<?= $kota->id ?>" aria-expanded="false">
+                  <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#accordionWithIcon-1<?= $kota->id_kota ?>" aria-expanded="false">
                     <i class="bx bx-briefcase me-2"></i>
                     <?= $kota->nama_kota ?>
                   </button>
                 </h2>
-                <div id="accordionWithIcon-<?= $kota->id ?>" class="accordion-collapse collapse">
+                <div id="accordionWithIcon-1<?= $kota->id_kota ?>" class="accordion-collapse collapse">
                   <div class="accordion-body">
                               <?php
                           if ($dkec) {
                             $nkec = 0;
                             foreach ($dkec as $kec) {
-                              if ($kec->id_kota == $kota->id) {
+                              if ($kec->id_kota == $kota->id_kota) {
                               ?>
                               <div class="accordion-item card mt-1">
                             <h2 class="accordion-header d-flex align-items-center">
-                              <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#accordionWithIcon-<?= $kec->id ?>" aria-expanded="false">
+                              <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#accordionWithIcon-2<?= $kec->id_kec ?>" aria-expanded="false">
                                 <i class="bx bx-briefcase me-2"></i>
                                 <?= $kec->nama_kec ?>
                               </button>
                             </h2>
-                            <div id="accordionWithIcon-<?= $kec->id ?>" class="accordion-collapse collapse">
+                            <div id="accordionWithIcon-2<?= $kec->id_kec ?>" class="accordion-collapse collapse">
                               <div class="accordion-body">
                                       <?php  if ($ddesa) {
                                         $ndesa = 0;
                                       foreach ($ddesa as $desa) {
-                                        if ($desa->id_kec == $kec->id) {
+                                        $kec1 = $kec->id_kota.$kec->id_kec;
+                                        $kec2 = $kec->id_kota.$desa->id_kec;
+                                        if ($kec1 == $kec2) {
                                         ?>
                                         <div class="accordion-item card mt-1">
                                       <h2 class="accordion-header d-flex align-items-center">
                                         <button type="button" class="accordion-button" aria-expanded="false">
                                           
-                                          <?= $desa->nama_desa ?>
+                                          <?= $desa->nama_desa.'-'.$kec1.'-'.$kec2 ?>
                                         </button>
                                       </h2>
                                     </div>
@@ -246,7 +248,7 @@
                                     <?php
                                     foreach ($dkota as $kota) {
                                         ?>
-                                        <option value="<?= $kota->id; ?>"><?= $kota->nama_kota; ?></option>
+                                        <option value="<?= $kota->id_kota; ?>"><?= $kota->nama_kota; ?></option>
                                         <?php
                                     }
                                     ?>
@@ -287,7 +289,7 @@
                                     <?php
                                     foreach ($dkec as $kec) {
                                         ?>
-                                        <option value="<?= $kec->id; ?>"><?= $kec->nama_kec; ?></option>
+                                        <option value="<?= $kec->id_kec; ?>"><?= $kec->nama_kec; ?></option>
                                         <?php
                                     }
                                     ?>

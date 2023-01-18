@@ -28,21 +28,24 @@ class Alamat extends BaseController
             $table = 'provinsi';
         }elseif ($this->request->getVar('pilih') == 2){
             $data =[
-                'id' => $this->request->getVar('kd_kota'),
+                'id' => '',
+                'id_kota' => $this->request->getVar('kd_kota'),
                 'id_prov' => $this->request->getVar('prov'),
                 'nama_kota' => $this->request->getVar('nama_kota'),
             ];
             $table ='kota';
         }elseif ($this->request->getVar('pilih') == 3) {
             $data =[
-                'id' => $this->request->getVar('kd_kec'),
+                'id' => '',
+                'id_kec' => $this->request->getVar('kd_kec'),
                 'id_kota' => $this->request->getVar('kota'),
                 'nama_kec' => $this->request->getVar('nama_kec'),
             ];
             $table ='kecamatan';
         }else{
             $data =[
-                'id' => $this->request->getVar('kd_desa'),
+                'id' => '',
+                'id_desa' => $this->request->getVar('kd_desa'),
                 'id_kec' => $this->request->getVar('kec'),
                 'nama_desa' => $this->request->getVar('nama_desa'),
             ];
@@ -69,7 +72,7 @@ class Alamat extends BaseController
         $dkota= $this->malamat->getKota($id,2);
             echo "<option value=''></option>";
             foreach ($dkota as $kota) {
-                echo "<option value='$kota->id'>$kota->nama_kota</option>";
+                echo "<option value='$kota->id_kota'>$kota->nama_kota</option>";
             }
 
     }
@@ -80,7 +83,7 @@ class Alamat extends BaseController
         $dkec= $this->malamat->getKec($id,2);
             echo "<option value=''></option>";
             foreach ($dkec as $kec) {
-                echo "<option value='$kec->id'>$kec->nama_kec</option>";
+                echo "<option value='$kec->id_kec'>$kec->nama_kec</option>";
             }
 
     }
@@ -91,7 +94,7 @@ class Alamat extends BaseController
         $ddesa= $this->malamat->getDesa($id,2);
             echo "<option value=''></option>";
             foreach ($ddesa as $desa) {
-                echo "<option value='$desa->id'>$desa->nama_desa</option>";
+                echo "<option value='$desa->id_desa'>$desa->nama_desa</option>";
             }
 
     }

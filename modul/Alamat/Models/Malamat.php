@@ -29,17 +29,17 @@ class Malamat extends Model
         if ($id != null) {
             if ($p == 1) {
                 $tblprov = $this->db->table('kota');
-                $result1 = $tblprov->where('id',$id)->get()->getRow();
+                $result1 = $tblprov->where('id_kota',$id)->get()->getRow();
             }elseif($p == 2){
                 $tblprov = $this->db->table('kota');
-                $result1 = $tblprov->where('id_prov',$id)->orderBy('nama_kota','ASC')->get()->getResult();
+                $result1 = $tblprov->where('id_prov',$id)->orderBy('id_kota','ASC')->get()->getResult();
             }
 
             $result = $result1;
             
         }else{
             $tblprov = $this->db->table('kota');
-            $result = $tblprov->orderBy('nama_kota','ASC')->get()->getResult();
+            $result = $tblprov->orderBy('nama_kota','ASC')->orderBy('id','ASC')->get()->getResult();
         }
         
         return $result;
@@ -49,17 +49,17 @@ class Malamat extends Model
         if ($id != null) {
             if ($p == 1) {
                 $tblprov = $this->db->table('kecamatan');
-                $result1 = $tblprov->where('id',$id)->get()->getRow();
+                $result1 = $tblprov->where('id_kota',$id)->get()->getRow();
             }elseif($p == 2){
                 $tblprov = $this->db->table('kecamatan');
-                $result1 = $tblprov->where('id_kota',$id)->orderBy('nama_kec','ASC')->get()->getResult();
+                $result1 = $tblprov->where('id_kota',$id)->orderBy('id_kec','ASC')->get()->getResult();
             }
 
             $result = $result1;
             
         }else{
             $tblprov = $this->db->table('kecamatan');
-            $result = $tblprov->orderBy('nama_kec','ASC')->get()->getResult();
+            $result = $tblprov->orderBy('id_kec','ASC')->get()->getResult();
         }
         
         
@@ -71,17 +71,17 @@ class Malamat extends Model
         if ($id != null) {
             if ($p == 1) {
                 $tblprov = $this->db->table('desa');
-                $result1 = $tblprov->where('id',$id)->get()->getRow();
+                $result1 = $tblprov->where('id_desa',$id)->get()->getRow();
             }elseif($p == 2){
                 $tblprov = $this->db->table('desa');
-                $result1 = $tblprov->where('id_kec',$id)->orderBy('nama_desa','ASC')->get()->getResult();
+                $result1 = $tblprov->where('id_kec',$id)->orderBy('id_desa','ASC')->get()->getResult();
             }
 
             $result = $result1;
             
         }else{
             $tblprov = $this->db->table('desa');
-            $result = $tblprov->orderBy('nama_desa','ASC')->get()->getResult();
+            $result = $tblprov->orderBy('id_desa','ASC')->get()->getResult();
         }
         
         
