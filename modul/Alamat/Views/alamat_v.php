@@ -42,40 +42,38 @@
                   ?>
                   <div class="accordion-item card mt-1">
                 <h2 class="accordion-header d-flex align-items-center">
-                  <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#accordionWithIcon-1<?= $kota->id_kota ?>" aria-expanded="false">
+                  <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#accordionWithIcon-<?= $kota->id ?>" aria-expanded="false">
                     <i class="bx bx-briefcase me-2"></i>
                     <?= $kota->nama_kota ?>
                   </button>
                 </h2>
-                <div id="accordionWithIcon-1<?= $kota->id_kota ?>" class="accordion-collapse collapse">
+                <div id="accordionWithIcon-<?= $kota->id ?>" class="accordion-collapse collapse">
                   <div class="accordion-body">
                               <?php
                           if ($dkec) {
                             $nkec = 0;
                             foreach ($dkec as $kec) {
-                              if ($kec->id_kota == $kota->id_kota) {
+                              if ($kec->id_kota == $kota->id) {
                               ?>
                               <div class="accordion-item card mt-1">
                             <h2 class="accordion-header d-flex align-items-center">
-                              <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#accordionWithIcon-2<?= $kec->id_kec ?>" aria-expanded="false">
+                              <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#accordionWithIcon-k<?= $kec->id ?>" aria-expanded="false">
                                 <i class="bx bx-briefcase me-2"></i>
                                 <?= $kec->nama_kec ?>
                               </button>
                             </h2>
-                            <div id="accordionWithIcon-2<?= $kec->id_kec ?>" class="accordion-collapse collapse">
+                            <div id="accordionWithIcon-k<?= $kec->id ?>" class="accordion-collapse collapse">
                               <div class="accordion-body">
                                       <?php  if ($ddesa) {
                                         $ndesa = 0;
                                       foreach ($ddesa as $desa) {
-                                        $kec1 = $kec->id_kota.$kec->id_kec;
-                                        $kec2 = $kec->id_kota.$desa->id_kec;
-                                        if ($kec1 == $kec2) {
+                                        if ($desa->id_kec == $kec->id) {
                                         ?>
                                         <div class="accordion-item card mt-1">
                                       <h2 class="accordion-header d-flex align-items-center">
                                         <button type="button" class="accordion-button" aria-expanded="false">
                                           
-                                          <?= $desa->nama_desa.'-'.$kec1.'-'.$kec2 ?>
+                                          <?= $desa->nama_desa ?>
                                         </button>
                                       </h2>
                                     </div>
@@ -213,14 +211,10 @@
                                     ?>
                         </select>
                     </div>
-                    <div class="form-group mb-2">
-                      <label for="kd_kota" class="form-label">Kode Kota/ Kabupaten</label>
-                      <input type="text" id="kd_kota" name="kd_kota" class="form-control">
-                      <input type="hidden" id="pilih" name="pilih" value = "2">
-                    </div>
                     <div class="form-group">
                       <label for="nama_kota" class="form-label">Nama Kota/ Kabupaten</label>
                       <input type="text" id="nama_kota" name="nama_kota" class="form-control">
+                      <input type="hidden" id="pilih" name="pilih" value = "2">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -248,20 +242,16 @@
                                     <?php
                                     foreach ($dkota as $kota) {
                                         ?>
-                                        <option value="<?= $kota->id_kota; ?>"><?= $kota->nama_kota; ?></option>
+                                        <option value="<?= $kota->id; ?>"><?= $kota->nama_kota; ?></option>
                                         <?php
                                     }
                                     ?>
                         </select>
                     </div>
-                    <div class="form-group mb-2">
-                      <label for="kd_kec" class="form-label">Kode Kecamatan</label>
-                      <input type="text" id="kd_kec" name="kd_kec" class="form-control">
-                      <input type="hidden" id="pilih" name="pilih" value = "3">
-                    </div>
                     <div class="form-group">
                       <label for="nama_kec" class="form-label">Nama kecamatan</label>
                       <input type="text" id="nama_kec" name="nama_kec" class="form-control">
+                      <input type="hidden" id="pilih" name="pilih" value = "3">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -289,20 +279,16 @@
                                     <?php
                                     foreach ($dkec as $kec) {
                                         ?>
-                                        <option value="<?= $kec->id_kec; ?>"><?= $kec->nama_kec; ?></option>
+                                        <option value="<?= $kec->id; ?>"><?= $kec->nama_kec; ?></option>
                                         <?php
                                     }
                                     ?>
                         </select>
                     </div>
-                    <div class="form-group mb-2">
-                      <label for="kd_desa" class="form-label">Kode Desa/ Kelurahan</label>
-                      <input type="text" id="kd_desa" name="kd_desa" class="form-control">
-                      <input type="hidden" id="pilih" name="pilih" value = "4">
-                    </div>
                     <div class="form-group">
                       <label for="nama_desa" class="form-label">Nama Desa/ Kelurahan</label>
                       <input type="text" id="nama_desa" name="nama_desa" class="form-control">
+                      <input type="hidden" id="pilih" name="pilih" value = "4">
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -421,11 +407,11 @@
       });
     $("#fmkota").validate({
           rules: {
-            kd_kota: "required",
+            prov: "required",
             nama_kota: "required",
           },
           messages: {
-            kd_kota: "Kode Kota harus di isi !!!",
+            prov: "Silahkan pilih provinsi !!",
             nama_kota: "Nama Kota harus di isi !!!",
           },
         //   errorElement: "em",
@@ -489,11 +475,9 @@
       });
     $("#fmkec").validate({
           rules: {
-            kd_kec: "required",
             nama_kec: "required",
           },
           messages: {
-            kd_kec: "Kode Kecamatan harus di isi !!!",
             nama_kec: "Nama Kecamatan harus di isi !!!",
           },
         //   errorElement: "em",
@@ -557,11 +541,9 @@
       });
     $("#fmdesa").validate({
           rules: {
-            kd_desa: "required",
             nama_desa: "required",
           },
           messages: {
-            kd_desa: "Kode Desa / Kelurahan harus di isi !!!",
             nama_desa: "Nama Desa / Kelurahan harus di isi !!!",
           },
         //   errorElement: "em",
