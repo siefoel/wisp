@@ -2,26 +2,17 @@
 
 <?= $this->section('content') ?>
   <!-- Content -->
+  <div class="container-xxl">
+  <div class="authentication-wrapper authentication-basic container-p-y">
+    <div class="authentication-inner">
 
-  <div class="authentication-wrapper authentication-cover">
-  <div class="authentication-inner row m-0">
-
-    <!-- /Left Text -->
-    <div class="d-none d-lg-flex col-lg-7 col-xl-8 align-items-center p-5">
-      <div class="w-100 d-flex justify-content-center">
-        <img src="<?= base_url() ?>/assets/img/illustrations/girl-with-laptop-light.png" class="img-fluid" alt="Login image" width="700" data-app-dark-img="illustrations/girl-with-laptop-dark.png" data-app-light-img="illustrations/girl-with-laptop-light.png">
-
-      </div>
-    </div>
-    <!-- /Left Text -->
-
-    <!-- Register -->
-    <div class="d-flex col-12 col-lg-5 col-xl-4 align-items-center authentication-bg p-sm-5 p-4">
-      <div class="w-px-400 mx-auto">
-        <!-- Logo -->
-        <div class="app-brand mb-5">
-          <a href="index-2.html" class="app-brand-link gap-2">
-            <span class="app-brand-logo demo">
+      <!-- Register Card -->
+      <div class="card">
+        <div class="card-body">
+          <!-- Logo -->
+          <div class="app-brand justify-content-center">
+            <a href="index-2.html" class="app-brand-link gap-2">
+              <span class="app-brand-logo demo">
 
 <svg width="25" viewBox="0 0 25 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs>
@@ -57,73 +48,63 @@
 </svg>
 
 </span>
-            <span class="app-brand-text demo text-body fw-bolder">lmsrpl</span>
-          </a>
-        </div>
-        <!-- /Logo -->
-        <h4 class="mb-2">Adventure starts here 🚀</h4>
-        <p class="mb-4">Make your app management easy and fun!</p>
+              <span class="app-brand-text demo text-body fw-bolder">Sneat</span>
+            </a>
+          </div>
+          <!-- /Logo -->
+          <h4 class="mb-2">Adventure starts here 🚀</h4>
+          <p class="mb-4">Make your app management easy and fun!</p>
 
-        <form id="formAuthentication" class="mb-3" action="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/html/vertical-menu-template/index.html" method="POST">
-          <div class="mb-3">
-            <label for="username" class="form-label">Username</label>
-            <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username" autofocus>
-          </div>
-          <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input type="text" class="form-control" id="email" name="email" placeholder="Enter your email">
-          </div>
-          <div class="mb-3 form-password-toggle">
-            <label class="form-label" for="password">Password</label>
-            <div class="input-group input-group-merge">
-              <input type="password" id="password" class="form-control" name="password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" />
-              <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+          <form id="formAuthentication" class="mb-3" action="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/html/vertical-menu-template/index.html" method="POST">
+            <div class="mb-3">
+              <label for="username" class="form-label">Username</label>
+              <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username" autofocus>
             </div>
-          </div>
-
-          <div class="mb-3">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="terms-conditions" name="terms">
-              <label class="form-check-label" for="terms-conditions">
-                I agree to
-                <a href="javascript:void(0);">privacy policy & terms</a>
-              </label>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="text" class="form-control" id="email" name="email" placeholder="Enter your email">
             </div>
+            <div class="mb-3 form-password-toggle">
+              <label class="form-label" for="password">Password</label>
+              <div class="input-group input-group-merge">
+                <input type="password" id="password" class="form-control" name="password" placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;" aria-describedby="password" />
+                <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+              </div>
+            </div>
+            <button class="btn btn-primary d-grid w-100">
+              Sign up
+            </button>
+          </form>
+
+          <p class="text-center">
+            <span>Already have an account?</span>
+            <a href="<?= base_url('auth') ?>">
+              <span>Log In</span>
+            </a>
+          </p>
+
+          <!-- <div class="divider my-4">
+            <div class="divider-text">or</div>
           </div>
-          <button class="btn btn-primary d-grid w-100">
-            Sign up
-          </button>
-        </form>
 
-        <p class="text-center">
-          <span>Already have an account?</span>
-          <a href="<?= base_url('auth') ?>">
-            <span>Sign in instead</span>
-          </a>
-        </p>
+          <div class="d-flex justify-content-center">
+            <a href="javascript:;" class="btn btn-icon btn-label-facebook me-3">
+              <i class="tf-icons bx bxl-facebook"></i>
+            </a>
 
-        <div class="divider my-4">
-          <div class="divider-text">or</div>
-        </div>
+            <a href="javascript:;" class="btn btn-icon btn-label-google-plus me-3">
+              <i class="tf-icons bx bxl-google-plus"></i>
+            </a>
 
-        <div class="d-flex justify-content-center">
-          <a href="javascript:;" class="btn btn-icon btn-label-facebook me-3">
-            <i class="tf-icons bx bxl-facebook"></i>
-          </a>
-
-          <a href="javascript:;" class="btn btn-icon btn-label-google-plus me-3">
-            <i class="tf-icons bx bxl-google-plus"></i>
-          </a>
-
-          <a href="javascript:;" class="btn btn-icon btn-label-twitter">
-            <i class="tf-icons bx bxl-twitter"></i>
-          </a>
+            <a href="javascript:;" class="btn btn-icon btn-label-twitter">
+              <i class="tf-icons bx bxl-twitter"></i>
+            </a>
+          </div> -->
         </div>
       </div>
+      <!-- Register Card -->
     </div>
-    <!-- /Register -->
   </div>
 </div>
-
 <!-- / Content -->
 <?= $this->endSection() ?>

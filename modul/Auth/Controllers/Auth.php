@@ -21,4 +21,8 @@ class Auth extends BaseController
     {
         return view('Modul\Auth\Views\resetpassword_v');
     }
+    public function verify()
+    {
+        return view('Modul\Auth\Views\verify_v');
+    }
 }
